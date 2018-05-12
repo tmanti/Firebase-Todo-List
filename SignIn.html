@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>Sign-In</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDSYnkgjJaddCmsFcMZiRYfjj6AEgfKA1g",
+        authDomain: "to-do-list-test-3d045.firebaseapp.com",
+        databaseURL: "https://to-do-list-test-3d045.firebaseio.com",
+        projectId: "to-do-list-test-3d045",
+        storageBucket: "",
+        messagingSenderId: "774312091344"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <center><div id="largebox" style="padding-top:10em;padding-bottom:10em;">
+          <h1>Sign-In</h1>
+          <br />
+          Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="email" type="text"/><br/><br />
+          Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="pwd" type="password"/><br/><br />
+          <br />
+          <br />
+         <button onclick="getData()" width="100%">Sign In</button> 
+         <br />
+         <br />
+         <a class="button" href="index.html">Back</a>
+      </div></center>
+    </div>
+    <script>
+    function getData()
+{
+var email=document.getElementById("uname");
+var password=document.getElementById("password");
+//alert(email+" "+password);
+firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+// Handle Errors here.
+
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // ...
+		alert(errorCode+" "+errorMessage);
+		});
+}
+firebase.auth().onAuthStateChanged(function(username){
+	if(username!=null)
+	{
+		alert(username);
+	}
+	else
+	{
+		alert("not sign in");
+	}
+});
+    </script>
+  </body>
+</html>

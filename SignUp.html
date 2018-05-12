@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>Sign-Up</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDSYnkgjJaddCmsFcMZiRYfjj6AEgfKA1g",
+        authDomain: "to-do-list-test-3d045.firebaseapp.com",
+        databaseURL: "https://to-do-list-test-3d045.firebaseio.com",
+        projectId: "to-do-list-test-3d045",
+        storageBucket: "",
+        messagingSenderId: "774312091344"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <center><div id="largebox" style="padding-top:10em;padding-bottom:10em;">
+          <h1>Sign-Up</h1>
+          <br />
+          Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="email" type="text"/><br/><br />
+          Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="pwd" type="password"/><br/><br />
+          Retype Password:&nbsp;<input id="repeat" type="password"><br /><br />
+          <br />
+          <br />
+         <button onclick="tryauth()" width="100%">Sign Up</button> 
+         <br />
+         <br />
+         <a class="button" href="index.html">Back</a>
+      </div></center>
+    </div>
+    <script>
+      function tryauth() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("pwd").value;
+        if (password != document.getElementById("repeat").value) {
+          alert("Passwords do not match!");
+        } else if (password.length < 6) {
+          alert("Password must be at least 6 characters long!");
+        } else {
+          firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // ...
+		alert(errorCode+" "+errorMessage);
+            // ...
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

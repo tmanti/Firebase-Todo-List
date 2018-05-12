@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <!-- Add additional services you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDSYnkgjJaddCmsFcMZiRYfjj6AEgfKA1g",
+        authDomain: "to-do-list-test-3d045.firebaseapp.com",
+        databaseURL: "https://to-do-list-test-3d045.firebaseio.com",
+        projectId: "to-do-list-test-3d045",
+        storageBucket: "",
+        messagingSenderId: "774312091344"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <center><div id="centered" class="centered">
+        <div>
+          <h1 style>The To-Do list</h1>
+          <a class="button" href="index.html">Back</a>
+        </div>
+        <p></p>
+        <div id="container" style="text-align:left">
+          <p>Please Enter Items Below</p>
+          <div id="list">
+          </div>
+          <div id="input">
+            <input type="text" id="addTo" onkeypress="return searchKeyPress(event);">
+            <button id="addToButton" class="button" onClick="addToList()">Add</button>
+          </div>
+        </div>
+      </div></center> <!-- center -->
+    </div>
+  </body>
+</html>
