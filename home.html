@@ -2,12 +2,8 @@
 <html>
   <head>
     <title>To-Do List</title>
+    
     <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
-    <!-- Firebase App is always required and must be first -->
-    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
-    <!-- Add additional services you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -15,7 +11,7 @@
         authDomain: "to-do-list-test-3d045.firebaseapp.com",
         databaseURL: "https://to-do-list-test-3d045.firebaseio.com",
         projectId: "to-do-list-test-3d045",
-        storageBucket: "",
+        storageBucket: "to-do-list-test-3d045.appspot.com",
         messagingSenderId: "774312091344"
       };
       firebase.initializeApp(config);
@@ -42,5 +38,8 @@
         </div>
       </div></center> <!-- center -->
     </div>
+    
+    <button onClick="checkAuth()" class="button">user</button>
+    <div id="user"></div>
   </body>
 </html>
