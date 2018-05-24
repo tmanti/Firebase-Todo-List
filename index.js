@@ -1,27 +1,48 @@
-var uid = firebase.auth().currentUser.uid;
-var database = firebase.database()
-var user = firebase.auth().currentUser;
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyDSYnkgjJaddCmsFcMZiRYfjj6AEgfKA1g",
+  authDomain: "to-do-list-test-3d045.firebaseapp.com",
+  databaseURL: "https://to-do-list-test-3d045.firebaseio.com",
+  projectId: "to-do-list-test-3d045",
+  storageBucket: "to-do-list-test-3d045.appspot.com",
+  messagingSenderId: "774312091344"
+};
+firebase.initializeApp(config);
+
+var uid;
+var database;
+var username;
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    uid = firebase.auth().currentUser.uid;
+    database = firebase.database()
+    username = firebase.auth().currentUser;
+  } else {
+    window.assign.location("SignIn.html");
+  }
+});
 
 function addToList(){
   var input = document.getElementById("addTo").value;
   if(input.length > 0){
    // document.getElementById("list").innerHTML += input + "<br />";
     //document.getElementById("addTo").value = ""; 
-    writeNewPost
+    writeNewPost(uid, username, Date.now(), input);
     
   }
 }
 
 function checkAuth(){
   var user = firebase.auth().currentUser;
-  alert(Date.now());
+  alert(uid);
   
 }
 
 function writeNewPost(uid, username, time, message) {
     // A post entry.
     var postData = {
-      user: user,
+      user: username,
       uid: uid,
       message: message,
       time: time
@@ -35,7 +56,6 @@ function writeNewPost(uid, username, time, message) {
     updates['/user/' + uid + '/' + newPostKey] = postData;
   
     return firebase.database().ref().update(updates);
-  }
 }
 
 function searchKeyPress(e)
