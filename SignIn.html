@@ -21,7 +21,7 @@
          <button onclick="getData()" width="100%">Sign In</button> 
          <br />
          <br />
-         <a class="button" href="index.html">Back</a>
+         <a class="button" href="firebaseindex.html">Back</a>
       </div></center>
     </div>
     <script>
@@ -41,7 +41,7 @@
     });
     
     firebase.auth().onAuthStateChanged(function(user){
-        	if(user && user.email == email)
+        	if(user)
         	{
         		window.location.assign("home.html");
         	}

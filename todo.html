@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+    <script src="firebaseGeneral.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div id="banner">
+      <header class="maintitle">Firebase Testing Home</header>
+      <nav class="navbar"><a class="navbutton" href="home.html">Home</a><span class="navline">|</span><a class="navcurr" href="todo.html" >To-Do List</a></nav>
+    </div>
+    <div>
+      <center><div id="container">
+        <div class="content" style="text-align:left">
+          <p>Please Enter Items Below</p>
+          <div id="list" style="width:75%">
+          </div>
+          <div id="input">
+            &nbsp;&nbsp;<input type="text" id="addTo" onkeypress="return searchKeyPress(event);">
+            <button id="addToButton" class="button" onClick="addToList()">Add</button>
+          </div>
+          <br />
+        </div>
+      </div></center> <!-- center -->
+    </div>
+  </body>
+</html>

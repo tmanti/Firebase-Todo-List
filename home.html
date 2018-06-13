@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>To-Do List</title>
-    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
-    <script src="firebaseGeneral.js"></script>
-    <link rel="stylesheet" href="stylesheet.css" />
-    <script src="index.js"></script>
+      <title>Home Page</title>
+      <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-auth.js"></script>
+      <script src="firebaseGeneral.js"></script>
+      <link rel="stylesheet" href="stylesheet.css" />
   </head>
   <body>
-    <div id="container">
-      <center><div id="centered" class="centered">
-        <div>
-          <h1 style>The To-Do list</h1>
-          <a class="button" href="index.html">Back</a>
-        </div>
-        <p></p>
-        <div id="container" style="text-align:left">
-          <p>Please Enter Items Below</p>
-          <div id="list">
-          </div>
-          <div id="input">
-            <input type="text" id="addTo" onkeypress="return searchKeyPress(event);">
-            <button id="addToButton" class="button" onClick="addToList()">Add</button>
-          </div>
-        </div>
-      </div></center> <!-- center -->
+    <div id="banner">
+      <header class="maintitle">Firebase Testing Home</header>
+      <nav class="navbar"><a class="navbutton" href="index.html" style="float:left">Back</a><a class="navcurr" href="home.html">Home</a><span class="navline">|</span><a class="navbutton" href="todo.html" >To-Do List</a></nav>
     </div>
-    <button onClick="checkAuth()" class="button">user</button>
-    <div id="user"></div>
+    <div class="content" id="container">
+      <h2>Welcome to the Firebase testing center</h2>
+      <p>here, I test and develop new apps utilizing firebase and other tools. essentially my testing grounds for new and intresting projects.</p>
+     <center><img src="fb.png" style="width:500px;height:auto;"></center>
+    </div>
+    <script>
+      firebase.auth().onAuthStateChanged(function(user) {
+        if(user){
+          
+        } else {
+           window.assign.location("index.html");
+        }
+      });
+    </script>
   </body>
 </html>

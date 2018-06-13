@@ -1,12 +1,14 @@
 body {
-  background-color: #333;
+  background-color: #1B253F;
   color: #eee;
   font-family: monospace;
   margin: 0px;
+  overflow: hidden;
 }
 
 #container {
-  padding: 10px;
+  padding:10px;
+  margin: 10px;
 }
 
 #list {
@@ -53,8 +55,95 @@ button:hover{
 }
 
 #largebox {
-  background-color: #444;
+  background-color: #202e35;
   width: 500px;
+}
+
+.navbar, .maintitle{
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.content {
+  position: absolute;
+  overflow: auto;
+  top: 7em;
+  height: calc(100% - 11em);
+  width: 100%;
+}
+
+.maintitle{
+  top: 0;
+  padding: 3px;
+  text-align: center;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 300;
+  letter-spacing: -1px;
+  font-size: 250%;
+  color: white;
+  background-color: #202e35;
+}
+
+.navbar{
+  top:0;
+  background-color: #202e35;
+  letter-spacing: -1px;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: 'Open Sans', monospace;
+  font-size: 100%;
+  color: black;
+}
+
+.navbarback{
+  top:0;
+  background-color: #202e35;
+  letter-spacing: -1px;
+  margin-top: 6em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-family: 'Open Sans', monospace;
+  font-size: 100%;
+  color: black;
+}
+
+.navbutton:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.navbutton:active {
+  background-color: rgba(255,255,255,0.3);
+}
+
+.navbutton, .navcurr {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  border-style: none;
+  font-family: inherit;
+  font-size: 120%;
+  background-color: rgba(0,0,0,0);
+  color: white;
+}
+
+.navline{
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  border-style: none;
+  font-family: inherit;
+  font-size: 120%;
+  background-color: rgba(0,0,0,0);
+  color: white;
+}
+
+.navcurr{
+  text-decoration: none;
+  box-shadow: inset 0 0px 0 white, inset 0 -1px 0 white;
 }
 
 input {
